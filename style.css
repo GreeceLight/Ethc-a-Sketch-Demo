@@ -8,14 +8,21 @@ body {
 
 #container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: blanchedalmond;
-    gap: 5px;
+    
+
+    width: 780px;
+    height: auto;
+    background-color: pink;
 }
 
-#box {
+.box {
     display: flex;
-    background-color: black;
-    padding: 50px;
+    padding: 20px;
+    margin: 3px;
+
+    background-color: blueviolet;
+
 }
