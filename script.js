@@ -1,9 +1,18 @@
 const containerDiv = document.querySelector('#container');
+const containerDivCSS = document.getElementById('container')
 
-createBoxs(16);
+createBoxs(prompt('Enter a number!'));
+
+const allBoxs = document.querySelectorAll('.box');
+
+allBoxs.forEach(box => box.addEventListener('mouseover', ()=>{
+    box.classList.add('boxhover');
+}))
 
 function createBoxs(num){
-    num = num**2
+    newWidth = num * 40;
+    containerDivCSS.style.width = newWidth + 'px';
+    num = num**2;
     for(let i = 1; i<=num; i++){
         const nextBox = document.createElement("div");
 
