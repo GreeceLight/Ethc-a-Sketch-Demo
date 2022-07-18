@@ -5,6 +5,7 @@ createBoxs(prompt('Enter a number!'));
 const allBoxs = document.querySelectorAll('.box');
 allBoxs.forEach(box => box.addEventListener('mouseover', ()=>{
     box.classList.add('boxhover');
+    box.style.backgroundColor = `rgb(${getRandInt()}, ${getRandInt()}, ${getRandInt()})`;
 }))
 
 function createBoxs(num){
@@ -18,4 +19,8 @@ function createBoxs(num){
 
         containerDiv.appendChild(nextBox)
     }
+}
+
+function getRandInt(){
+    return ((Math.floor(Math.random() * (255 - 1 + 1) + 1)).toString());
 }
