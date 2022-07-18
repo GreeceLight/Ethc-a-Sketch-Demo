@@ -1,26 +1,36 @@
 const containerDiv = document.querySelector('#container');
+const tileButton = document.querySelector('#tileButton');
 
-createBoxs(prompt('Enter a number!'));
+tileButton.addEventListener("click", createBoxs);
 
-const allBoxs = document.querySelectorAll('.box');
-allBoxs.forEach(box => box.addEventListener('mouseover', ()=>{
-    box.classList.add('boxhover');
-    box.style.backgroundColor = `rgb(${getRandInt()}, ${getRandInt()}, ${getRandInt()})`;
-}))
+function createBoxs(){
+    if(document.querySelector('.box')){
+        const delBoxs = document.getElementsByClassName('box');
+        for(let i = delBoxs.length - 1; i>=0; i--){delBoxs[i].remove();}
+    }
 
-function createBoxs(num){
-    realNum = num;
-    num = num**2;
-    for(let i = 1; i<=num; i++){
-        const nextBox = document.createElement("div");
-
-        nextBox.classList.add('box');
-        nextBox.style.padding = (960 / realNum)/2 + "px";
-
-        containerDiv.appendChild(nextBox)
+    num = prompt('How Many?');
+    if (num < 100){
+        realNum = num;
+        num = num**2;
+        for(let i = 1; i<=num; i++){
+            const nextBox = document.createElement("div");
+            nextBox.classList.add('box');
+            nextBox.style.padding = (960 / realNum)/2 + "px";
+            containerDiv.appendChild(nextBox)
+        }
+        makeHoverEvent();
     }
 }
 
 function getRandInt(){
     return ((Math.floor(Math.random() * (255 - 1 + 1) + 1)).toString());
+}
+
+function makeHoverEvent(){
+    const allBoxs = document.querySelectorAll('.box');
+    allBoxs.forEach(box => box.addEventListener('mouseover', ()=>{
+    box.classList.add('boxhover');
+    box.style.backgroundColor = `rgb(${getRandInt()}, ${getRandInt()}, ${getRandInt()})`;
+}))
 }
