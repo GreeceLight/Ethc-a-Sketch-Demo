@@ -10,16 +10,22 @@ function createBoxs(){
     }
 
     num = prompt('How Many?');
-    if (num < 100){
-        containerDiv.style.
-
+    if (num < 100){  
         realNum = num;
         num = num**2;
         for(let i = 1; i<=num; i++){
             const nextBox = document.createElement("div");
             nextBox.classList.add('box');
-            boxPadding = (960 / realNum)/2 + "px"
-            nextBox.style.padding = '10px';
+
+            boxPadding = (960 / realNum);
+            // nextBox.style.padding = boxPadding + "px";
+            
+            vmaxCalc =boxPadding + 'px ';
+            vmaxVar = vmaxCalc.repeat(realNum);
+            console.log(vmaxVar);
+
+            containerDiv.style.gridTemplateColumns = vmaxVar;
+            containerDiv.style.gridTemplateRows = vmaxVar;
             console.log(boxPadding);
             containerDiv.appendChild(nextBox)
         }
