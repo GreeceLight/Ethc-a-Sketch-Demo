@@ -10,23 +10,19 @@ function createBoxs(){
     }
 
     num = prompt('How Many?');
-    if (num < 100){  
+    if (num <= 100){  
         realNum = num;
         num = num**2;
+        vmaxCalc =960 / realNum + 'px ';
+        gridVmax = vmaxCalc.repeat(realNum);
+
         for(let i = 1; i<=num; i++){
             const nextBox = document.createElement("div");
             nextBox.classList.add('box');
-
-            boxPadding = (960 / realNum);
-            // nextBox.style.padding = boxPadding + "px";
             
-            vmaxCalc =boxPadding + 'px ';
-            vmaxVar = vmaxCalc.repeat(realNum);
-            console.log(vmaxVar);
+            containerDiv.style.gridTemplateColumns = gridVmax;
+            containerDiv.style.gridTemplateRows = gridVmax;
 
-            containerDiv.style.gridTemplateColumns = vmaxVar;
-            containerDiv.style.gridTemplateRows = vmaxVar;
-            console.log(boxPadding);
             containerDiv.appendChild(nextBox)
         }
         makeHoverEvent();
