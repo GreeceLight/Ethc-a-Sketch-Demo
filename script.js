@@ -11,12 +11,16 @@ function createBoxs(){
 
     num = prompt('How Many?');
     if (num < 100){
+        containerDiv.style.
+
         realNum = num;
         num = num**2;
         for(let i = 1; i<=num; i++){
             const nextBox = document.createElement("div");
             nextBox.classList.add('box');
-            nextBox.style.padding = (960 / realNum)/2 + "px";
+            boxPadding = (960 / realNum)/2 + "px"
+            nextBox.style.padding = '10px';
+            console.log(boxPadding);
             containerDiv.appendChild(nextBox)
         }
         makeHoverEvent();
