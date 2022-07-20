@@ -15,14 +15,13 @@ function createBoxs(){
         num = num**2;
         vmaxCalc =960 / realNum + 'px ';
         gridVmax = vmaxCalc.repeat(realNum);
+        containerDiv.style.gridTemplateColumns = gridVmax;
+        containerDiv.style.gridTemplateRows = gridVmax;
 
         for(let i = 1; i<=num; i++){
             const nextBox = document.createElement("div");
             nextBox.classList.add('box');
-            
-            containerDiv.style.gridTemplateColumns = gridVmax;
-            containerDiv.style.gridTemplateRows = gridVmax;
-
+        
             containerDiv.appendChild(nextBox)
         }
         makeHoverEvent();
